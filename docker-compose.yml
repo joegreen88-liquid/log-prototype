@@ -1,0 +1,57 @@
+############################################################################################################
+# Volumes
+############################################################################################################
+
+webapp-data:
+  image: ubuntu:14.04
+  volumes:
+     - /webapp-data:/webapp-data
+  container_name: webapp-data
+
+############################################################################################################
+# Containers
+############################################################################################################
+
+db:
+  image: mongo:3.3.8
+  hostname: db
+  stdin_open: true
+  tty: true
+  restart: always
+  ports:
+    - "27017:27017"
+  container_name: db
+
+search:
+  image: nshou/elasticsearch-kibana:latest
+  hostname: search
+  stdin_open: true
+  tty: true
+  restart: always
+  ports:
+    - "9200:9200"
+    - "5601:5601"
+  container_name: search
+
+webapp:
+  build: ./webapp
+  hostname: webapp
+  stdin_open: true
+  tty: true
+  restart: always
+  links:
+    - db
+    - search
+  ports:
+    - "8109:8109"
+  volumes_from:
+      - webapp-data
+  volumes:
+    - $HOME/.composer:/home/phpstorm/.composer
+    - $HOME/.cache:/home/phpstorm/.cache
+    - $HOME/.ssh:/home/phpstorm/.ssh
+  container_name: webapp
+
+
+
+
