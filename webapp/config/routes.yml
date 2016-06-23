@@ -1,0 +1,9 @@
+homepage:
+  route: /
+  method: GET
+  target: JGLP\Controller\Index@index
+
+check-elasticsearch:
+  route: /check-elasticsearch
+  method: GET
+  target: JGLP\Controller\Check@elasticsearch

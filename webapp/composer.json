@@ -1,5 +1,15 @@
 {
-    "require": {
-        "mongodb/mongodb": "~1.0.2"
+  "require": {
+    "mongodb/mongodb": "~1.0.2",
+    "monolog/monolog": "~1.19.0",
+    "elasticsearch/elasticsearch": "~2.0",
+    "smrtr/haltorouter": "~1.5.0",
+    "symfony/yaml": "~3.1.1",
+    "symfony/http-foundation": "~3.1.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "": "src/"
     }
+  }
 }

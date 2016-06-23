@@ -7,4 +7,8 @@ if ("cli-server" === php_sapi_name()) {
     }
 }
 
-echo "Welcome to the web app!";
+require_once __DIR__.'/../vendor/autoload.php';
+
+require_once __DIR__.'/../paths.php';
+
+\JGLP\App::getInstance()->bootstrap()->run();
