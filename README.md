@@ -1,9 +1,8 @@
 # log-prototype
 
-Set up with `sh setup.sh`.
+Set up docker with `sh setup.sh`.
 
-Then add the docker-machine IP to the /etc/hosts with hostname log-prototype on your host machine.
-Instructions to follow on that.
+Set up hosts with `sudo sh sudo-hosts.sh`.
 
 Verify you can reach the web app by going to http://log-prototype:8109 in the browser.
 

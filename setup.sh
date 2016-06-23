@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Remove the existing virtual machine if it exists
+docker-machine rm log-prototype -y
+
 # Create the virtual machine for docker
 docker-machine create -d virtualbox log-prototype
 
@@ -17,3 +20,6 @@ eval "$(docker-machine env log-prototype)"
 docker-compose stop
 docker-compose rm
 docker-compose up -d
+
+# Write the docker-machine ip to a file
+docker-machine ip log-prototype > ./.docker-machine-ip
