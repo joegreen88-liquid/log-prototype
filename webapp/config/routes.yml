@@ -3,12 +3,32 @@ homepage:
   method: GET
   target: JGLP\Controller\Index@index
 
-check-elasticsearch:
-  route: /check-elasticsearch
-  method: GET
-  target: JGLP\Controller\Check@elasticsearch
+change-user:
+  route: /user/change
+  method: GET|POST
+  target: JGLP\Controller\User@change
 
 event:
   route: /event/[:event]?
   method: GET
   target: JGLP\Controller\Index@event
+
+logs:
+  route: /logs
+  method: GET
+  target: JGLP\Controller\Index@all_logs
+
+my-logs:
+  route: /logs/mine
+  method: GET
+  target: JGLP\Controller\Index@my_logs
+
+check-elasticsearch:
+  route: /check/elasticsearch
+  method: GET
+  target: JGLP\Controller\Check@elasticsearch
+
+check-phpinfo:
+  route: /check/phpinfo
+  method: GET
+  target: JGLP\Controller\Check@phpinfo

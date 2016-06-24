@@ -7,6 +7,12 @@ return [
         ]
     ],
     'AuditLogger' => [
-        'factory' => '\\JGLP\\Service\\Factory\\AuditLogger'
+        'factory' => '\\JGLP\\Service\\Factory\\AuditLogger',
+        'config' => [
+            'Elasticsearch' => [
+                'service' => 'Elasticsearch',
+                'index' => 'audit-log-'.date('Ymd')
+            ]
+        ]
     ]
 ];

@@ -2,6 +2,8 @@
 
 date_default_timezone_set("Europe/London");
 
+session_start();
+
 $this->errorHandler = function(\Exception $e) {
     ?>
     <h1>Exception</h1>

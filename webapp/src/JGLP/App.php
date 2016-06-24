@@ -58,6 +58,8 @@ class App
      */
     public function bootstrap()
     {
+        require_once CONFIG_PATH.'/bootstrap.php';
+
         $this->services = new Services;
         $this->services->loadConfig();
 
@@ -72,8 +74,6 @@ class App
                 isset($route["hostgroup"]) ? $route["hostgroup"] : null
             );
         }
-
-        require_once CONFIG_PATH.'/bootstrap.php';
 
         $this->request = Request::createFromGlobals();
         $this->response = Response::create();
@@ -200,5 +200,13 @@ class App
         $this->response->setStatusCode(404);
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUser()
+    {
+        return isset($_SESSION["user"]) ? $_SESSION["user"] : "default-user";
     }
 }

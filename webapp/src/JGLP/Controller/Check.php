@@ -2,8 +2,6 @@
 
 namespace JGLP\Controller;
 
-use JGLP\App;
-
 class Check extends AbstractController
 {
     public function elasticsearch()
@@ -35,5 +33,11 @@ class Check extends AbstractController
         echo "<h2>GET the health check document</h2>";
         echo "<pre>".print_r($response, true)."</pre>";
         echo "<hr>";
+    }
+
+    public function phpinfo()
+    {
+        phpinfo();
+        return;
     }
 }

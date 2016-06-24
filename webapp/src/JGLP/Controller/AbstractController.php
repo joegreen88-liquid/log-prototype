@@ -30,4 +30,28 @@ abstract class AbstractController
     {
         return $this->app()->service("AuditLogger");
     }
+
+    /**
+     * @return \Elasticsearch\Client
+     */
+    public function Elasticsearch()
+    {
+        return $this->app()->service("Elasticsearch");
+    }
+
+    /**
+     * @return string
+     */
+    public function activeUserBar()
+    {
+        ob_start();
+        ?>
+        <p>
+            <em>Active User: <strong><?=htmlentities($this->app()->getUser())?></strong></em>
+            <small><a href="/user/change">[change user]</a></small>
+        </p>
+        <hr>
+        <?php
+        return ob_get_clean();
+    }
 }
