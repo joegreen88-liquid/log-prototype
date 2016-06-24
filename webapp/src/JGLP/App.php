@@ -32,12 +32,12 @@ class App
     /**
      * @var Request
      */
-    protected $request;
+    public $request;
 
     /**
      * @var Response
      */
-    protected $response;
+    public $response;
 
     /**
      * @return App
@@ -84,7 +84,7 @@ class App
     /**
      * @param string $service
      *
-     * @return Service\ServiceInterface
+     * @return Service\ServiceInterface|mixed
      */
     public function service($service)
     {

@@ -4,14 +4,14 @@ namespace JGLP\Controller;
 
 use JGLP\App;
 
-class Check
+class Check extends AbstractController
 {
     public function elasticsearch()
     {
         /**
          * @var \Elasticsearch\Client $es
          */
-        $es = App::getInstance()->service('Elasticsearch');
+        $es = $this->app()->service('Elasticsearch');
 
         // 1. PUT a document
         $response = $es->index([

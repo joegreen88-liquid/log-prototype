@@ -34,7 +34,7 @@ class Services
      * 
      * @param string $service
      * 
-     * @return ServiceInterface
+     * @return ServiceInterface|mixed
      * 
      * @throws \Exception If service cannot be found or loaded properly.
      */

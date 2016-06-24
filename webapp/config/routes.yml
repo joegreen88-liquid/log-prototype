@@ -7,3 +7,8 @@ check-elasticsearch:
   route: /check-elasticsearch
   method: GET
   target: JGLP\Controller\Check@elasticsearch
+
+event:
+  route: /event/[:event]?
+  method: GET
+  target: JGLP\Controller\Index@event

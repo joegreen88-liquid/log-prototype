@@ -4,9 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a41e493b3fa91f987ff24c5344c43df1",
-    "content-hash": "6d501170b2e49a03325b4b6af2fbe763",
+    "hash": "cfc37bfccd47c5ffcccc628f32337571",
+    "content-hash": "a3259633c85202be15be634fa4b514d5",
     "packages": [
+        {
+            "name": "atrapalo/monolog-elasticsearch",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atrapalo/monolog-elasticsearch.git",
+                "reference": "6bca4e35afde34fca92e43228d02dc764cfc04a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atrapalo/monolog-elasticsearch/zipball/6bca4e35afde34fca92e43228d02dc764cfc04a9",
+                "reference": "6bca4e35afde34fca92e43228d02dc764cfc04a9",
+                "shasum": ""
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "^2.0"
+            },
+            "require-dev": {
+                "monolog/monolog": "^1.17",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Atrapalo\\": "src/Atrapalo"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Soronellas",
+                    "email": "christian.soronellas@atrapalo.com"
+                }
+            ],
+            "description": "A Monolog handler and formatter that makes use of the elasticsearch/elasticsearch package",
+            "keywords": [
+                "PSR3",
+                "elastic",
+                "elasticsearch",
+                "log",
+                "logger",
+                "logging",
+                "monolog",
+                "psr-3"
+            ],
+            "time": "2016-02-12 19:20:36"
+        },
         {
             "name": "elasticsearch/elasticsearch",
             "version": "v2.2.0",

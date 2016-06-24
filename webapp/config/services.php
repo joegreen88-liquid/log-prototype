@@ -5,5 +5,8 @@ return [
         'config' => [
             'hosts' => ['search']
         ]
+    ],
+    'AuditLogger' => [
+        'factory' => '\\JGLP\\Service\\Factory\\AuditLogger'
     ]
 ];
