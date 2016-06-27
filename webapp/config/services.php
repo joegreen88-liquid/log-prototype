@@ -1,11 +1,5 @@
 <?php
 return [
-    'Elasticsearch' => [
-        'factory' => '\\JGLP\\Service\\Factory\\Elasticsearch',
-        'config' => [
-            'hosts' => ['search']
-        ]
-    ],
     'AuditLogger' => [
         'factory' => '\\JGLP\\Service\\Factory\\AuditLogger',
         'config' => [
@@ -14,5 +8,14 @@ return [
                 'index' => 'audit-log-'.date('Ymd')
             ]
         ]
-    ]
+    ],
+    'Elasticsearch' => [
+        'factory' => '\\JGLP\\Service\\Factory\\Elasticsearch',
+        'config' => [
+            'hosts' => ['search']
+        ]
+    ],
+    'User' => [
+        'class' => '\\JGLP\\Service\\User'
+    ],
 ];

@@ -4,7 +4,7 @@ namespace JGLP\Service\Factory;
 
 use Atrapalo\Monolog\Handler\ElasticsearchHandler;
 use JGLP\App;
-use JGLP\Service\ConfigurableTrait;
+use JGLP\ConfigurableTrait;
 use JGLP\Services;
 use Monolog\Logger;
 
@@ -31,10 +31,13 @@ class AuditLogger implements FactoryInterface
     {
         $logger = new Logger('liquid_audit_logger');
         $this->addElasticsearchHandler($logger, $services);
+        $this->addUserProcessor($logger, $services);
         return $logger;
     }
 
     /**
+     * Add the Elasticsearch handler to the logger
+     *
      * @param Logger $logger
      * @param Services $services
      *
@@ -57,8 +60,23 @@ class AuditLogger implements FactoryInterface
             $services->get('Elasticsearch'),
             [
                 'index' => $config["index"],
-                'type'  => "user-".App::getInstance()->getUser(),
+                'type'  => "user-".$services->get("User")->getId(),
             ]
         ));
+    }
+
+    /**
+     * Add a custom processing function o the logger which adds the user ID
+     *
+     * @param Logger $logger
+     * @param Services $services
+     */
+    protected function addUserProcessor(Logger $logger, Services $services)
+    {
+        $logger->pushProcessor(function (array $record) use ($services)
+        {
+            $record["extra"]["user"] = $services->get("User")->getId();
+            return $record;
+        });
     }
 }

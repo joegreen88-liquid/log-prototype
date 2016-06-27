@@ -40,6 +40,14 @@ abstract class AbstractController
     }
 
     /**
+     * @return \JGLP\Service\User
+     */
+    public function User()
+    {
+        return $this->app()->service("User");
+    }
+
+    /**
      * @return string
      */
     public function activeUserBar()
@@ -47,7 +55,7 @@ abstract class AbstractController
         ob_start();
         ?>
         <p>
-            <em>Active User: <strong><?=htmlentities($this->app()->getUser())?></strong></em>
+            <em>Active User: <strong><?=htmlentities($this->User()->getId())?></strong></em>
             <small><a href="/user/change">[change user]</a></small>
         </p>
         <hr>

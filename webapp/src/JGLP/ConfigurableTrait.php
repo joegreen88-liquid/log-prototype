@@ -1,6 +1,6 @@
 <?php
 
-namespace JGLP\Service;
+namespace JGLP;
 
 trait ConfigurableTrait
 {

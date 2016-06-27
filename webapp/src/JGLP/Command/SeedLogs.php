@@ -50,6 +50,7 @@ class SeedLogs extends Command
 
         for ($i = 1; $i <= $numEntries; $i++) {
             for ($j = 1; $j <= $numUsers; $j++) {
+                $services->get("User")->setId($j);
                 $this->updateLoggerHandlerFormatter($logger, $j);
                 $logger->info("seeded log event number $i");
                 $output->write(".");

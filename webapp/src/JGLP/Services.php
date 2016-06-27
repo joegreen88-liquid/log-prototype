@@ -100,6 +100,8 @@ class Services
             if (array_key_exists("config", $config) && is_array($config["config"])) {
                 $this->services[$service]->setConfig($config["config"]);
             }
+
+            $this->services[$service]->setServiceContainer($this);
             
         } else {
             throw new \Exception("No class or factory provided in \"$service\" service configuration");

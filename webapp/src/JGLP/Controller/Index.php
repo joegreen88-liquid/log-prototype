@@ -65,9 +65,10 @@ class Index extends AbstractController
     public function my_logs()
     {
         echo $this->activeUserBar();
+        $es = $this->Elasticsearch();
         ?>
         <h1>My Logs</h1>
-        <p>WIP</p>
+        <pre><?=print_r($es->search(["type" => "user-".$this->User()->getId(), "size" => 100]), true)?></pre>
         <?php
     }
 }

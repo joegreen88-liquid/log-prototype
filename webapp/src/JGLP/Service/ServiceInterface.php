@@ -2,25 +2,17 @@
 
 namespace JGLP\Service;
 
-interface ServiceInterface
+use JGLP\ConfigurableInterface;
+use JGLP\Services;
+
+interface ServiceInterface extends ConfigurableInterface
 {
     /**
-     * Return configuration value if key given, else return array of config.
+     * Give the service object a reference to the service container.
+     * 
+     * @param Services $services
      *
-     * @param null|string $key
-     * @param null|mixed  $default If key is given but not present, return this default value instead.
-     *
-     * @return array|mixed
+     * @return static
      */
-    public function getConfig($key = null, $default = null);
-
-    /**
-     * Sets config value for the given key if string key given, or sets entire config if array given.
-     *
-     * @param array|string $config Provide an array of config or a single config key.
-     * @param null|mixed   $value  Ignored if the first parameter is an array.
-     *
-     * @return $this
-     */
-    public function setConfig($config, $value = null);
+    public function setServiceContainer(Services $services);
 }

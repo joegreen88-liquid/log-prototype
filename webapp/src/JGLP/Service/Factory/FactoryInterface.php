@@ -2,16 +2,16 @@
 
 namespace JGLP\Service\Factory;
 
-use JGLP\Service\ServiceInterface;
+use JGLP\ConfigurableInterface;
 use JGLP\Services;
 
-interface FactoryInterface extends ServiceInterface
+interface FactoryInterface extends ConfigurableInterface
 {
     /**
      * @param Services $services
      *   The service container is passed as a param so it can be used to fetch dependent services if needed.
      *
-     * @return ServiceInterface
+     * @return mixed
      */
     public function make(Services $services);
 }
