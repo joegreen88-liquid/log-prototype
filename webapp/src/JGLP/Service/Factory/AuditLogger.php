@@ -5,6 +5,7 @@ namespace JGLP\Service\Factory;
 use Atrapalo\Monolog\Handler\ElasticsearchHandler;
 use JGLP\App;
 use JGLP\Service\ConfigurableTrait;
+use JGLP\Services;
 use Monolog\Logger;
 
 /**
@@ -20,23 +21,26 @@ class AuditLogger implements FactoryInterface
     use ConfigurableTrait;
 
     /**
+     * @inheritdoc
+     * 
      * @return Logger
      *
      * @throws \Exception if not configured properly
      */
-    public function make()
+    public function make(Services $services)
     {
         $logger = new Logger('liquid_audit_logger');
-        $this->addElasticsearchHandler($logger);
+        $this->addElasticsearchHandler($logger, $services);
         return $logger;
     }
 
     /**
      * @param Logger $logger
+     * @param Services $services
      *
      * @throws \Exception if not configured properly
      */
-    protected function addElasticsearchHandler(Logger $logger)
+    protected function addElasticsearchHandler(Logger $logger, Services $services)
     {
         if (!array_key_exists("Elasticsearch", $this->getConfig())) {
             throw new \Exception("No Elasticsearch config provided for AuditLogger service");
@@ -50,7 +54,7 @@ class AuditLogger implements FactoryInterface
         }
 
         $logger->pushHandler(new ElasticsearchHandler(
-            App::getInstance()->service('Elasticsearch'),
+            $services->get('Elasticsearch'),
             [
                 'index' => $config["index"],
                 'type'  => "user-".App::getInstance()->getUser(),

@@ -11,4 +11,15 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 require_once __DIR__.'/../paths.php';
 
-\JGLP\App::getInstance()->bootstrap()->run();
+if ("cli" === php_sapi_name()) {
+
+    date_default_timezone_set("Europe/London");
+    $app = new \Symfony\Component\Console\Application("log-prototype");
+    $app->add(new \JGLP\Command\SeedLogs);
+    $app->run();
+
+} else {
+    // Run the web app
+    \JGLP\App::getInstance()->bootstrap()->run();
+}
+

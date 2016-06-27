@@ -19,8 +19,12 @@ class User extends AbstractController
         }
         ?>
         <form method="post">
-            <label for="user">Username</label>
-            <input name="user" id="user" type="text" max="5" maxlength="15">
+            <label for="user">User ID</label>
+            <select name="user" id="user">
+            <?php for ($i = 1; $i <= 10; $i++): ?>
+                <option value="<?=$i?>"><?=$i?></option>
+            <?php endfor; ?>
+            </select>
             <br>
             <button type="submit">Submit</button>
         </form>

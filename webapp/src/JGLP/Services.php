@@ -83,7 +83,7 @@ class Services
                 $factory->setConfig($config["config"]);
             }
             
-            $this->services[$service] = $factory->make();
+            $this->services[$service] = $factory->make($this);
             
         } elseif (array_key_exists("class", $config)) {
 

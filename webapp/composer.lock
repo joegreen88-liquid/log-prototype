@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cfc37bfccd47c5ffcccc628f32337571",
-    "content-hash": "a3259633c85202be15be634fa4b514d5",
+    "hash": "723ec182dc31d84a4dfdbc0cb0df4445",
+    "content-hash": "16689fae5012899ae600eec24704a051",
     "packages": [
         {
             "name": "atrapalo/monolog-elasticsearch",
@@ -479,73 +479,27 @@
             "time": "2015-02-03 17:41:45"
         },
         {
-            "name": "smrtr/roddick",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joegreen88/roddick.git",
-                "reference": "717cc6e8bf75737e518b29ba71065b37a1f3145e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joegreen88/roddick/zipball/717cc6e8bf75737e518b29ba71065b37a1f3145e",
-                "reference": "717cc6e8bf75737e518b29ba71065b37a1f3145e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "symfony/console": "~2.7.1",
-                "symfony/process": "~2.7.1"
-            },
-            "bin": [
-                "bin/roddick"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Joe Green",
-                    "homepage": "https://github.com/joegreen88"
-                }
-            ],
-            "description": "Commands for starting and stopping a php web server in the background",
-            "keywords": [
-                "background",
-                "command",
-                "continuous integration",
-                "php",
-                "process",
-                "server",
-                "testing"
-            ],
-            "time": "2016-04-11 21:26:24"
-        },
-        {
             "name": "symfony/console",
-            "version": "v2.7.14",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "1db9bfd331383f3ba0b3c2f54da418df68c867c4"
+                "reference": "64a4d43b045f07055bb197650159769604cb2a92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/1db9bfd331383f3ba0b3c2f54da418df68c867c4",
-                "reference": "1db9bfd331383f3ba0b3c2f54da418df68c867c4",
+                "url": "https://api.github.com/repos/symfony/console/zipball/64a4d43b045f07055bb197650159769604cb2a92",
+                "reference": "64a4d43b045f07055bb197650159769604cb2a92",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/process": "~2.1"
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -555,7 +509,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -582,7 +536,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 14:41:06"
+            "time": "2016-06-14 11:18:07"
         },
         {
             "name": "symfony/http-foundation",
